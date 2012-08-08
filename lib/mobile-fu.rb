@@ -33,8 +33,7 @@ module ActionController
   module MobileFu
     # These are various strings that can be found in tablet devices.  Please feel free
     # to add on to this list.
-    #TABLET_USER_AGENTS =  'ipad|android 3.0|xoom|sch-i800|playbook|tablet|kindle|honeycomb'
-    TABLET_USER_AGENTS =  ''
+    TABLET_USER_AGENTS =  'ipad|android 3.0|xoom|sch-i800|playbook|tablet|kindle|honeycomb'
 
     def self.included(base)
       base.extend ClassMethods
@@ -116,7 +115,8 @@ module ActionController
           request.format = :mobile unless session[:mobile_view] == false
           session[:mobile_view] = true if session[:mobile_view].nil?
         elsif !mobile_exempt? && is_tablet_device? && !request.xhr?
-          request.format = :tablet unless session[:tablet_view] == false
+          #request.format = :tablet unless session[:tablet_view] == false
+          request.format = :html
           session[:tablet_view] = true if session[:tablet_view].nil?
         end
       end
