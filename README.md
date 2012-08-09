@@ -1,3 +1,8 @@
+Fork Note
+------------
+
+This plugin has additional tablet regexes and responds with the :html format instead of :tablet.
+
 Mobile Fu
 =========
 
